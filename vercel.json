@@ -8,6 +8,10 @@
       "config": {
         "maxLambdaSize": "50mb"
       }
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -18,10 +22,6 @@
     {
       "src": "/js/(.*)",
       "dest": "/public/js/$1"
-    },
-    {
-      "src": "/uploads/(.*)",
-      "dest": "/public/uploads/$1"
     },
     {
       "src": "/(.*)",

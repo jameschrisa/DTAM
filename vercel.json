@@ -1,11 +1,15 @@
 {
   "version": 2,
   "name": "dtam",
-  "functions": {
-    "server.js": {
-      "maxDuration": 30
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
     }
-  },
+  ],
   "routes": [
     {
       "src": "/css/(.*)",

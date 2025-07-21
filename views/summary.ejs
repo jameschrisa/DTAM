@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary - Digital Threat Assessment Management</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/onboarding.css">
+    <script src="/js/onboarding.js"></script>
+</head>
+<body class="onboarding-body">
+    <div class="onboarding-container">
+        <div class="onboarding-card">
+            <div class="onboarding-header">
+                <h1>Digital Threat Assessment Management</h1>
+            </div>
+            <div class="onboarding-content">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-step completed">1</div>
+                        <div class="progress-step completed">2</div>
+                        <div class="progress-step completed">3</div>
+                        <div class="progress-step active">4</div>
+                    </div>
+                    <div class="progress-labels">
+                        <div class="progress-label completed">Terms</div>
+                        <div class="progress-label completed">SOC</div>
+                        <div class="progress-label completed">Previous</div>
+                        <div class="progress-label active">Summary</div>
+                    </div>
+                </div>
+                
+                <h2>Assessment Summary</h2>
+                <p>Please review the information you've provided before proceeding to the workstation.</p>
+                
+                <div class="summary-section">
+                    <h3>Case Information</h3>
+                    <div class="summary-item">
+                        <div class="summary-label">Case/Incident ID:</div>
+                        <div class="summary-value" id="summaryCase"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Date:</div>
+                        <div class="summary-value" id="summaryDate"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Threat Assessment Team Member:</div>
+                        <div class="summary-value" id="summaryInvestigator"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Organization:</div>
+                        <div class="summary-value" id="summaryOrganization"></div>
+                    </div>
+                </div>
+                
+                <div class="summary-section" id="studentInfoSummary" style="display: none;">
+                    <h3>Student Information</h3>
+                    <div class="summary-item">
+                        <div class="summary-label">Student Name:</div>
+                        <div class="summary-value" id="summaryStudentName"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Student ID/PEN:</div>
+                        <div class="summary-value" id="summaryStudentId"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Grade:</div>
+                        <div class="summary-value" id="summaryGrade"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">School:</div>
+                        <div class="summary-value" id="summarySchool"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Date of Birth:</div>
+                        <div class="summary-value" id="summaryDOB"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Support Plans:</div>
+                        <div class="summary-value" id="summarySupportPlans"></div>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h3>Subject of Concern (SOC) Status</h3>
+                    <div class="summary-item">
+                        <div class="summary-label">Status:</div>
+                        <div class="summary-value" id="summarySocStatus"></div>
+                    </div>
+                </div>
+                
+                <div class="summary-section" id="safetySummarySection">
+                    <h3>Threat Assessment</h3>
+                    <div class="summary-item">
+                        <div class="summary-label">Law enforcement response needed:</div>
+                        <div class="summary-value" id="summaryEnforcement"></div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Access to means:</div>
+                        <div class="summary-value" id="summaryMeans"></div>
+                    </div>
+                    <div class="summary-item" id="summaryRiskItem">
+                        <div class="summary-label">Risk level:</div>
+                        <div class="summary-value" id="summaryRisk"></div>
+                    </div>
+                </div>
+                
+                <div class="summary-section" id="discoveryMethodSection" style="display: none;">
+                    <h3>Discovery Method</h3>
+                    <div class="summary-item">
+                        <div class="summary-label">Method:</div>
+                        <div class="summary-value" id="summaryDiscoveryMethod"></div>
+                    </div>
+                    
+                    <!-- Physical Discovery Details -->
+                    <div id="physicalDiscoveryDetails" style="display: none;">
+                        <div class="summary-item">
+                            <div class="summary-label">Found/Received by:</div>
+                            <div class="summary-value" id="summaryDiscoveryFinder"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Date/Time Received:</div>
+                            <div class="summary-value" id="summaryDiscoveryDate"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Location:</div>
+                            <div class="summary-value" id="summaryDiscoveryLocation"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Other Witnesses:</div>
+                            <div class="summary-value" id="summaryDiscoveryWitnesses"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Details -->
+                    <div class="summary-item" id="summarySourcePlatformItem" style="display: none;">
+                        <div class="summary-label">Source platform:</div>
+                        <div class="summary-value" id="summarySourcePlatform"></div>
+                    </div>
+                </div>
+                
+                <div class="summary-section" id="unknownThreatSection" style="display: none;">
+                    <h3>Unknown Threat Information</h3>
+                    <div class="summary-item">
+                        <div class="summary-label">Threat source:</div>
+                        <div class="summary-value" id="summaryThreatSource"></div>
+                    </div>
+                    <div class="summary-item" id="summarySourcePlatformItem" style="display: none;">
+                        <div class="summary-label">Source platform:</div>
+                        <div class="summary-value" id="summarySourcePlatform"></div>
+                    </div>
+                </div>
+                
+<form action="/dashboard" method="GET" id="summaryForm">
+                    <input type="hidden" name="caseId" id="caseIdInput">
+                    
+                    <div class="nav-buttons">
+                        <a href="#" id="backButton" class="btn btn-secondary btn-back">Back</a>
+                        <button type="submit" class="btn btn-primary">Proceed to Workstation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve data from Supabase via API endpoints
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Get case data from URL parameters
+                const urlParams = new URLSearchParams(window.location.search);
+                const caseId = urlParams.get('caseId') || `CASE-${Date.now()}`;
+                
+                // Initialize default values
+                let caseInfo = {
+                    caseId: caseId,
+                    date: new Date().toISOString().split('T')[0],
+                    investigatorName: '',
+                    organization: ''
+                };
+                
+                let socStatus = 'known';
+                let safetyAssessment = {
+                    means: 'no',
+                    rehearsal: 'no',
+                    baseline: 'no'
+                };
+                let studentInfo = null;
+                
+                // If we have a caseId, try to fetch existing data from Supabase
+                if (caseId && caseId !== `CASE-${Date.now()}`) {
+                    try {
+                        // Fetch case data from API
+                        const response = await fetch(`/api/case-data?caseId=${caseId}`);
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (data.case) {
+                                caseInfo = {
+                                    caseId: data.case.caseId,
+                                    date: data.case.date,
+                                    investigatorName: data.case.investigatorName,
+                                    organization: data.case.organization
+                                };
+                                socStatus = data.case.socStatus || 'known';
+                                safetyAssessment = data.case.safetyAssessment || {
+                                    means: 'no',
+                                    rehearsal: 'no',
+                                    baseline: 'no'
+                                };
+                                studentInfo = data.case.studentInfo;
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error fetching case data:', error);
+                    }
+                } else {
+                    // Try to get data from previous steps via sessionStorage
+                    // This is a fallback for the onboarding flow
+                    try {
+                        if (sessionStorage.getItem('caseInfo')) {
+                            caseInfo = JSON.parse(sessionStorage.getItem('caseInfo'));
+                        }
+                        if (sessionStorage.getItem('socStatus')) {
+                            socStatus = sessionStorage.getItem('socStatus');
+                        }
+                        if (sessionStorage.getItem('safetyAssessment')) {
+                            safetyAssessment = JSON.parse(sessionStorage.getItem('safetyAssessment'));
+                        }
+                        if (sessionStorage.getItem('studentInfo')) {
+                            studentInfo = JSON.parse(sessionStorage.getItem('studentInfo'));
+                        }
+                    } catch (error) {
+                        console.error('Error parsing session data:', error);
+                    }
+                }
+                
+                // Populate summary
+                document.getElementById('summaryCase').textContent = caseInfo.caseId || 'N/A';
+                document.getElementById('summaryDate').textContent = caseInfo.date || new Date().toISOString().split('T')[0];
+                document.getElementById('summaryInvestigator').textContent = caseInfo.investigatorName || 'N/A';
+                document.getElementById('summaryOrganization').textContent = caseInfo.organization || 'N/A';
+                
+                document.getElementById('summarySocStatus').textContent = socStatus === 'known' ? 'Known' : 'Unknown';
+                
+                // Set back button based on SOC status
+                const backButton = document.getElementById('backButton');
+                if (socStatus === 'known') {
+                    backButton.href = '/safety-assessment';
+                    
+                    // Safety assessment
+                    document.getElementById('safetySummarySection').style.display = 'block';
+                    document.getElementById('summaryEnforcement').textContent = formatSafetyValue(safetyAssessment.enforcement);
+                    document.getElementById('summaryMeans').textContent = formatSafetyValue(safetyAssessment.means);
+                    
+                    // Determine risk level
+                    const highRisk = safetyAssessment.enforcement === 'yes' || safetyAssessment.means === 'yes';
+                    
+                    document.getElementById('summaryRisk').textContent = highRisk ? 'High' : 'Moderate to Low';
+                    document.getElementById('summaryRisk').style.color = highRisk ? '#e60000' : '#38a169';
+                    
+                    // Show student information if available
+                    if (studentInfo) {
+                        document.getElementById('studentInfoSummary').style.display = 'block';
+                        document.getElementById('summaryStudentName').textContent = studentInfo.name || 'N/A';
+                        document.getElementById('summaryStudentId').textContent = studentInfo.id || 'N/A';
+                        document.getElementById('summaryGrade').textContent = studentInfo.grade || 'N/A';
+                        document.getElementById('summarySchool').textContent = studentInfo.school || 'N/A';
+                        document.getElementById('summaryDOB').textContent = studentInfo.dob || 'N/A';
+                        
+                        // Format support plans
+                        let supportPlansText = 'None';
+                        if (studentInfo.supportPlans && studentInfo.supportPlans.length > 0) {
+                            supportPlansText = studentInfo.supportPlans.map(plan => {
+                                if (plan === 'Other' && studentInfo.otherPlanText) {
+                                    return `Other (${studentInfo.otherPlanText})`;
+                                }
+                                return plan;
+                            }).join(', ');
+                        }
+                        document.getElementById('summarySupportPlans').textContent = supportPlansText;
+                    }
+                    
+                    // Hide discovery method section
+                    document.getElementById('discoveryMethodSection').style.display = 'none';
+                    document.getElementById('unknownThreatSection').style.display = 'none';
+                } else {
+                    backButton.href = '/discovery-method';
+                    
+                    // Hide safety assessment section
+                    document.getElementById('safetySummarySection').style.display = 'none';
+                    
+                    // Show discovery method section
+                    document.getElementById('discoveryMethodSection').style.display = 'block';
+                    document.getElementById('unknownThreatSection').style.display = 'block';
+                    
+                    // Get discovery method data from sessionStorage
+                    let discoveryMethod = {method: null, sourcePlatform: null};
+                    try {
+                        if (sessionStorage.getItem('discoveryMethod')) {
+                            discoveryMethod = JSON.parse(sessionStorage.getItem('discoveryMethod'));
+                        }
+                    } catch (error) {
+                        console.error('Error parsing discovery method:', error);
+                    }
+                    
+                    // Display discovery method
+                    const methodText = discoveryMethod.method === 'physical' ? 
+                        'Physical (bathroom wall, note, etc.)' : 
+                        'Social media post';
+                    
+                    document.getElementById('summaryDiscoveryMethod').textContent = methodText;
+                    document.getElementById('summaryThreatSource').textContent = methodText;
+                    
+                    // Show appropriate details based on discovery method
+                    if (discoveryMethod.method === 'physical' && discoveryMethod.physicalDetails) {
+                        // Show physical discovery details section
+                        document.getElementById('physicalDiscoveryDetails').style.display = 'block';
+                        
+                        // Populate physical discovery details
+                        document.getElementById('summaryDiscoveryFinder').textContent = 
+                            discoveryMethod.physicalDetails.finder || 'N/A';
+                        
+                        // Format date for display
+                        let formattedDate = 'N/A';
+                        if (discoveryMethod.physicalDetails.date) {
+                            const date = new Date(discoveryMethod.physicalDetails.date);
+                            formattedDate = date.toLocaleString();
+                        }
+                        document.getElementById('summaryDiscoveryDate').textContent = formattedDate;
+                        
+                        document.getElementById('summaryDiscoveryLocation').textContent = 
+                            discoveryMethod.physicalDetails.location || 'N/A';
+                        document.getElementById('summaryDiscoveryWitnesses').textContent = 
+                            discoveryMethod.physicalDetails.witnesses || 'N/A';
+                    } else if (discoveryMethod.method === 'social' && discoveryMethod.sourcePlatform) {
+                        // Show social media platform
+                        document.getElementById('summarySourcePlatformItem').style.display = 'flex';
+                        document.getElementById('summarySourcePlatform').textContent = 
+                            discoveryMethod.sourcePlatform.charAt(0).toUpperCase() + discoveryMethod.sourcePlatform.slice(1);
+                    }
+                }
+                
+                // Set up form submission
+                const summaryForm = document.getElementById('summaryForm');
+                if (summaryForm) {
+                    // Set the case ID input value
+                    document.getElementById('caseIdInput').value = caseInfo.caseId;
+                    
+                    // Add submit event listener
+                    summaryForm.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        
+                        // Get discovery method from sessionStorage if available
+                        let discoveryMethod = { method: null };
+                        try {
+                            if (sessionStorage.getItem('discoveryMethod')) {
+                                discoveryMethod = JSON.parse(sessionStorage.getItem('discoveryMethod'));
+                            }
+                        } catch (error) {
+                            console.error('Error parsing discovery method:', error);
+                        }
+                        
+                        // Prepare case data for API
+                        const caseData = {
+                            caseId: caseInfo.caseId || `CASE-${Date.now()}`,
+                            date: caseInfo.date || new Date().toISOString().split('T')[0],
+                            investigatorName: caseInfo.investigatorName || 'Unknown Investigator',
+                            organization: caseInfo.organization || 'Unknown Organization',
+                            socStatus: socStatus || 'known',
+                            discoveryMethod: discoveryMethod,
+                            safetyAssessment: safetyAssessment || { enforcement: 'no', means: 'no' },
+                            studentInfo: studentInfo || null
+                        };
+
+                        try {
+                            // Create a new case in Supabase
+                            const response = await fetch('/api/create-case', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(caseData)
+                            });
+
+                            if (!response.ok) {
+                                const errorData = await response.json();
+                                throw new Error('Failed to create case: ' + (errorData.error || response.statusText));
+                            }
+
+                            const data = await response.json();
+                            
+                            if (data.success) {
+                                // Clear session storage
+                                sessionStorage.clear();
+                                
+                                // Redirect to workstation with the new case ID
+                                window.location.href = `/workstation?caseId=${data.caseId}`;
+                            } else {
+                                throw new Error('Failed to create case: ' + (data.error || 'Unknown error'));
+                            }
+                        } catch (error) {
+                            console.error('Error creating case:', error);
+                            alert('Failed to create case. Please try again. ' + error.message);
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error('Error in summary page:', error);
+                alert('An error occurred while loading the summary page. Please try again.');
+            }
+        });
+        
+        // Format safety value for display
+        function formatSafetyValue(value) {
+            if (value === 'yes') return 'Yes';
+            if (value === 'no') return 'No';
+            return 'Unknown';
+        }
+    </script>
+</body>
+</html>
